@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="manager_name" default="nodelet_manager"/>
+  
+  <node pkg="nodelet" type="nodelet" name="$(arg manager_name)" args="manager" output="screen">
+  </node>
+
+  <node pkg="nodelet" type="nodelet" name="publisher"
+        args="load nodelet_template/TemplateNodelet $(arg manager_name)">
+    <param name="pub_message" value="hello world"/>
+  </node>
+
+  <node pkg="nodelet" type="nodelet" name="subscriber"
+        args="load nodelet_template/TemplateNodelet $(arg manager_name)">
+    <remap from="~recv_message" to="/publisher/send_message"/>
+  </node>
+</launch>

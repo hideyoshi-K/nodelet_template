@@ -1,0 +1,8 @@
+<library path="lib/libnodelet_template">
+  <class name="nodelet_template/TemplateNodelet"
+         type="nodelet_template::TemplateNodelet"
+         base_class_type="nodelet::Nodelet">
+    <description>
+    </description>
+  </class>
+</library>
